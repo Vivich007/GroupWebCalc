@@ -2,6 +2,9 @@
 - name: Install Tomcat
   hosts: WebCalcServers
   become: true
+  vars:
+    tomcat_admin_username: admin
+    tomcat_admin_password: admin123
   
   tasks:
     - name: Install Java
