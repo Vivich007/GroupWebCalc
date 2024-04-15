@@ -1,0 +1,21 @@
+---
+- name: Install and configure Tomcat
+  hosts: tomcat_servers
+  become: yes
+  vars:
+    tomcat_port: 8081
+
+  tasks:
+    - name: Update Tomcat server.xml to listen on a custom port
+      lineinfile:
+        path: /path/to/tomcat/conf/server.xml
+        regexp: 'port="8080"'
+        line: 'port="{{ tomcat_port }}"'
+      notify: Restart Tomcat
+
+  handlers:
+    - name: Restart Tomcat
+      service:
+        name: tomcat
+        state: restarted
+...

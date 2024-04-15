@@ -2,6 +2,7 @@
 - name: Install Tomcat
   hosts: WebCalcServers
   become: true
+  
   tasks:
     - name: Install Java
       yum:
