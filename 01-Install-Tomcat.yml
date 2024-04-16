@@ -40,7 +40,6 @@
         name: tomcat8
         state: started
         enabled: yes
-        become: true
       when: ansible_distribution == "CentOS"
 
     - name: Start Tomcat Service
@@ -48,7 +47,6 @@
         name: tomcat
         state: started
         enabled: yes
-        become: true
       when: ansible_distribution == "Ubuntu"
 
 ... 
