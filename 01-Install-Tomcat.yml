@@ -36,7 +36,7 @@
         dest: /opt/apache-tomcat-9.0.54/conf/tomcat-users.xml
     
     - name: Start Tomcat Service
-      shell: /opt/apache-tomcat-9.0.54/bin/startup.sh
+      shell: /opt/apache-tomcat-9.0.54/bin/startup.sh &
       service:
         name: tomcat
         enabled: yes
