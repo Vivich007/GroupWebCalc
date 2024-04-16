@@ -20,7 +20,7 @@
     git:
      repo: https://github.com/Vivich007/GroupWebCalc.git
      dest: /home/centos/Repo-dir
-     version: master
+     version: main
      force: yes
     when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" 
 
@@ -28,7 +28,7 @@
     git:
      repo: https://github.com/Vivich007/GroupWebCalc.git
      dest: /home/ubuntu/Repo-dir
-     version: master
+     version: main
      force: yes
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian" 
 ...
