@@ -19,3 +19,9 @@
         name: tomcat
         state: restarted
 ...
+
+#
+ - name: start tomcat
+     when: ansible_facts['os_family']== "RedHat"
+     command: sh '/opt/deploy/tomcatstartup.sh'
+#
