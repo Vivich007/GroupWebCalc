@@ -37,8 +37,6 @@
     
     - name: Start Tomcat Service
       shell: /opt/apache-tomcat-9.0.54/bin/startup.sh &
-        name: tomcat
-        enabled: yes
       when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
 
     - name: Start Tomcat Service
