@@ -18,12 +18,13 @@
       JAVA_HOME: /usr/lib/jvm/java-1.8.0-openjdk
     when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
   
-  - name: Change to project directory
-      become_user: root
-      shell: cd /home/centos/Repo-dir/
-  - name: Run Maven build
-      become_user: root
-      shell: mvn clean package
+  - name: Build Maven project
+    shell:
+      cmd: |
+        cd /home/centos/Repo-dir/
+        mvn clean package
+    environment:
+      JAVA_HOME: /usr/lib/jvm/java-1.8.0-openjdk
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"    
 
 ...    
