@@ -1,0 +1,17 @@
+---
+- name: Install Maven and build project
+  hosts: WebCalcServers
+  become: yes
+
+  - name: Install Maven
+      package:
+        name: maven  # Install Maven
+        state: present  # Ensure the package is installed
+
+  - name: Build Maven project
+    shell:
+      cmd: |
+        cd /home/centos/Repo-dir/
+        mvn clean package
+    environment:
+      JAVA_HOME: /usr/lib/jvm/java-1.8.0-openjdk
