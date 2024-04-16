@@ -20,7 +20,7 @@
   
   - name: Build project with Maven
     shell:
-    command: |
+    cmd: |
       mvn -f /home/ubuntu/Repo-dir/ clean package
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"    
 
