@@ -32,3 +32,6 @@
         state: started
         enabled: yes
       when: ansible_distribution == "Ubuntu"
+
+
+sudo /opt/apache-tomcat-9.0.54/bin/startup.sh

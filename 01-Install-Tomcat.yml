@@ -9,15 +9,15 @@
   tasks:
     - name: Install Java
       yum:
-        name: java-1.8.0-openjdk
+        name: java-1.8.0-openjdk-devel
         state: present
-      when: ansible_distribution == "CentOS"
+      when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
 
     - name: Install Java
       apt:
         name: openjdk-8-jre-headless
         state: present
-      when: ansible_distribution == "Ubuntu"
+      when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
     - name: Download Tomcat
       get_url:
@@ -36,17 +36,18 @@
         dest: /opt/apache-tomcat-9.0.54/conf/tomcat-users.xml
     
     - name: Start Tomcat Service
+      shell: /opt/apache-tomcat-9.0.54/bin/startup.sh
       service:
         name: tomcat8
         state: started
         enabled: yes
-      when: ansible_distribution == "CentOS"
+      when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
 
     - name: Start Tomcat Service
       systemd:
         name: tomcat
         state: started
         enabled: yes
-      when: ansible_distribution == "Ubuntu"
+      when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
 ... 
