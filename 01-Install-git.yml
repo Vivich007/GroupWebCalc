@@ -1,0 +1,26 @@
+---
+- name: Clone web app repo
+  hosts: WebCalcServers
+  become: yes
+
+  tasks:
+  - name: Install GIT
+    yum:
+     name: git
+     state: present
+   when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
+
+  - name: Install GIT
+    apt:
+    name: git
+    state: present
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+ 
+
+
+  - name: Host Code
+    git:
+     repo: https://github.com/Vivich007/GroupWebCalc.git
+     dest: /var/www/html
+     force: yes 
+...
