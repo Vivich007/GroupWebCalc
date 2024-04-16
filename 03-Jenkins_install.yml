@@ -31,7 +31,8 @@
     - name: Enable Jenkins
       service:
         name: jenkins
-        state: started
         enabled: yes
+        state: started
+        
 
 ... 
