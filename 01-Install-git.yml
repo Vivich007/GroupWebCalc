@@ -19,14 +19,14 @@
   - name: Host Code
     git:
      repo: https://github.com/Vivich007/GroupWebCalc.git
-     dest: /home/{{ ansible_distribution }}
+     dest: /home/centos
      force: yes
-    #when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" 
+    when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" 
 
   - name: Host Code
     git:
      repo: https://github.com/Vivich007/GroupWebCalc.git
-     dest: /home/{{ ansible_distribution }}
+     dest: /home/ubuntu
      force: yes
-    #when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian" 
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian" 
 ...
