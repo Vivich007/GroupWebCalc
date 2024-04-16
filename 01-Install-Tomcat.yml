@@ -29,12 +29,18 @@
         src: /opt/apache-tomcat-9.0.54.tar.gz
         dest: /opt/
         remote_src: yes
+
+    - name: Configure Tomcat Users
+      template:
+        src: tomcat-users.xml.j2
+        dest: /opt/apache-tomcat-9.0.54/conf/tomcat-users.xml
     
     - name: Start Tomcat Service
       service:
         name: tomcat8
         state: started
         enabled: yes
+        become: true
       when: ansible_distribution == "CentOS"
 
     - name: Start Tomcat Service
@@ -42,6 +48,7 @@
         name: tomcat
         state: started
         enabled: yes
+        become: true
       when: ansible_distribution == "Ubuntu"
 
 ... 
