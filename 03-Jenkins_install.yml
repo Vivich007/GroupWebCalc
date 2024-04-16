@@ -30,7 +30,7 @@
 
     - name: Enable Jenkins
       service:
-        name: reload jenkins
+        name: jenkins
         enabled: yes
 
 ... 
