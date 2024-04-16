@@ -21,7 +21,7 @@
   - name: Build project with Maven
     shell:  
       cmd: |
-        cd /home/centos/Repo-dir/
+        cd /home/centos/Repo-dir/pom.xml
         mvn clean package
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"    
 
