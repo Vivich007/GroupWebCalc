@@ -4,6 +4,12 @@
   become: true
   
   tasks:
+
+    - name: Install Java
+      yum:
+        name: java-11-openjdk
+        state: present
+
     - name: Add Jenkins Repo
       yum_repository:
         name: jenkins
