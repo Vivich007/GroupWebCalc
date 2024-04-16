@@ -24,7 +24,7 @@
         chdir /home/ubuntu/Repo-dir/
         mvn clean package
     environment:
-      JAVA_HOME: /usr/lib/jvm/java-1.8.0-openjdk-amd64
+      JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"    
 
 ...    

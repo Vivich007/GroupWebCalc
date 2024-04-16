@@ -9,13 +9,13 @@
   tasks:
     - name: Install Java
       yum:
-        name: java-1.8.0-openjdk-devel
+        name: java-11-openjdk-devel
         state: present
       when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
 
     - name: Install Java
       apt:
-        name: openjdk-8-jre-headless
+        name: openjdk-11-jre-headless
         state: present
       when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
