@@ -24,9 +24,9 @@
       yum:
         name: jenkins
         state: present
-    - name: Enable Jenkins
+    - name: Reload & Enable Jenkins
       service:
-        name: jenkins
+        state: reloaded
         enabled: yes
       when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
 
