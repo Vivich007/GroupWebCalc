@@ -8,7 +8,7 @@
     package:
       name: maven  # Install Maven
       state: present # Ensure the package is installed
-
+    
   - name: Build Maven project
     shell:
       cmd: |
@@ -16,3 +16,10 @@
         mvn clean package
     environment:
       JAVA_HOME: /usr/lib/jvm/java-1.8.0-openjdk
+    when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
+  
+  - name: Build project with Maven
+      command: mvn -f /home/centos/Repo-dir/pom.xml clean package
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"    
+
+...    
