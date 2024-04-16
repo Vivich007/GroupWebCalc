@@ -21,7 +21,7 @@
   - name: Build Maven project
     shell:
       cmd: |
-        cd /home/centos/Repo-dir/
+        chdir /home/centos/Repo-dir/
         mvn clean package
     environment:
       JAVA_HOME: /usr/lib/jvm/java-1.8.0-openjdk
