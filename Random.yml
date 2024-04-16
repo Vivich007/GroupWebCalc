@@ -34,4 +34,7 @@
       when: ansible_distribution == "Ubuntu"
 
 
-sudo /opt/apache-tomcat-9.0.54/bin/startup.sh
+sudo /opt/apache-tomcat-9.0.54/bin/startup.sh &
+
+## shell Module: This module is used to execute shell commands on the target system. It allows Ansible to run commands as if they were executed
+directly on the command line of the remote server.
