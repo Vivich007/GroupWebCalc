@@ -25,3 +25,10 @@
      when: ansible_facts['os_family']== "RedHat"
      command: sh '/opt/deploy/tomcatstartup.sh'
 #
+
+- name: Start Tomcat Service
+      systemd:
+        name: tomcat
+        state: started
+        enabled: yes
+      when: ansible_distribution == "Ubuntu"
