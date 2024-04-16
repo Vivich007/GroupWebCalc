@@ -1,0 +1,47 @@
+---
+- name: Install Jenkins
+  hosts: localhost
+  become: true
+  
+  tasks:
+    - name: Add Jenkins Repo
+      yum_repository:
+        name: jenkins
+        description: Jenkins Official Repository
+        baseurl: http://pkg.jenkins.io/redhat-stable
+        gpgcheck: yes
+        gpgkey: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+        state: present
+      when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
+      
+    - name: Install Jenkins  
+      yum:
+        name: jenkins
+        state: present
+    - name: Enable Jenkins
+      service:
+        name: jenkins
+        enabled: yes
+      when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
+
+
+    - name: Add Jenkins Repo key
+      apt_key:
+        url: https://pkg.jenkins.io/debian/jenkins.io.key
+        state: present
+
+    - name: Add Jenkins Repository
+      apt_repository:
+        repo: deb https://pkg.jenkins.io/debian-stable binary/
+        state: present
+
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+    - name: Enable Jenkins
+      systemd:
+        name: jenkins
+        enabled: yes
+      when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian" 
+... 
