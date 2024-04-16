@@ -4,9 +4,9 @@
   become: yes
 
   - name: Install Maven
-      package:
-        name: maven  # Install Maven
-        state: present  # Ensure the package is installed
+    package:
+      name: maven  # Install Maven
+      state: present # Ensure the package is installed
 
   - name: Build Maven project
     shell:
