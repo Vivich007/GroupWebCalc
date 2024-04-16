@@ -26,7 +26,7 @@
         dest: /opt/apache-tomcat-9.0.54/conf/tomcat-users.xml
     - name: Start Tomcat Service
       service:
-        name: Tomcat
+        name: Start tomcat
         state: started
         enabled: yes
 ...
