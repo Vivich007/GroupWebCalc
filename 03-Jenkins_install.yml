@@ -28,11 +28,11 @@
       ansible.builtin.systemd:
         daemon_reload: true
 
-    - name: Enable Jenkins
+    - name: Start Jenkins
       service:
         name: jenkins
         state: started
-        
+
     - name: Enable Jenkins
       service:
         enabled: yes
