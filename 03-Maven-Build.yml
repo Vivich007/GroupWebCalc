@@ -19,10 +19,10 @@
     when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
   
   - name: Change to project directory
-      become_user: ubuntu
+      become_user: root
       shell: cd /home/centos/Repo-dir/
   - name: Run Maven build
-      become_user: ubuntu
+      become_user: root
       shell: mvn clean package
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"    
 
