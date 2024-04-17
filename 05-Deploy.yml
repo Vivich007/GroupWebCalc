@@ -8,7 +8,8 @@
       copy:
         src: /Repo-dir/*.war
         dest: /opt/apache-tomcat-9.0.54/webapps
-        sudo: yes
+        remote_src: yes
+
       when: ansible_os_family == 'RedHat'
 
     - name: Copy Web App WAR file
