@@ -1,10 +1,7 @@
 ---
-- name: Install Tomcat
+- name: Deploy Web App to Tomcat
   hosts: WebCalcServers
-  become: true
-  vars:
-    tomcat_admin_username: admin
-    tomcat_admin_password: admin123
+  become: yes
   
   tasks:
     - name: Install Java
