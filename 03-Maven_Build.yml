@@ -45,8 +45,7 @@
     - name: Load Maven environment variables
       command: . /etc/profile.d/maven.sh
       when: ansible_distribution == 'Ubuntu'
-      force: yes
-
+      
     - name: Build Maven project
       shell:
         cmd: |
