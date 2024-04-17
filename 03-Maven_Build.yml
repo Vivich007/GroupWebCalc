@@ -49,14 +49,14 @@
     - name: Build Maven project
       shell:
         cmd: |
-          /home/centos//Repo-dir/
+          /home/centos//Web3
           mvn package
       when: ansible_os_family == 'RedHat'
   
     - name: Build Maven project
       shell:
         cmd: |
-          /home/ubuntu/Web3/
+          /home/ubuntu/Web3
           mvn package
       when: ansible_os_family == 'Debian'
 
