@@ -6,22 +6,22 @@
   tasks:
     - name: Copy Web App WAR file
       copy:
-        src: /home/centos/Repo-dir/WebAppCal-0.0.6.war
+        src: /home/centos/Repo-dir/target/WebAppCal-0.0.6.war
         dest: /opt/apache-tomcat-9.0.54/webapps
         remote_src: yes
       when: ansible_os_family == 'RedHat'
 
     - name: Copy Web App WAR file
       copy:
-        src: /home/ubuntu/WebAppCal-0.0.6.war
+        src: /home/ubuntu/target/WebAppCal-0.0.6.war
         dest: /opt/apache-tomcat-9.0.54/webapps
         remote_src: yes
       when: ansible_os_family == 'Debian'
 
-    - name: Restart Tomcat
-      service:
-        name: apache-tomcat
-        state: restarted
+    #- name: Restart Tomcat
+     # service:
+      #  name: apache-tomcat
+       # state: restarted
 
     - name: Start Tomcat Service
       shell: nohup /opt/apache-tomcat-9.0.54/bin/startup.sh &

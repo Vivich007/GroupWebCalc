@@ -7,38 +7,38 @@
   - name: Ensure System Packages Updated
     yum:
       update_cache: yes
-    when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
+    when: ansible_os_family == 'RedHat'
 
   - name: Ensure System Packages Updated
     apt:
       update_cache: yes
-    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+    when: ansible_os_family == 'Debian'
   
   - name: Install GIT
     yum:
      name: git
      state: present
-    when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
+    when: ansible_os_family == 'RedHat'
 
   - name: Install GIT
     apt:
      name: git
      state: present
-    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+    when: ansible_os_family == 'Debian'
  
   - name: Host Code
     git:
-     repo: https://github.com/Vivich007/GroupWebCalc.git
+     repo: https://github.com/Vivich007/Web3.git
      dest: /home/centos/Repo-dir
      version: main
      force: yes
-    when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" 
+    when: ansible_os_family == 'RedHat' 
 
   - name: Host Code
     git:
-     repo: https://github.com/Vivich007/GroupWebCalc.git
+     repo: https://github.com/Vivich007/Web3.git
      dest: /home/ubuntu/Repo-dir
      version: main
      force: yes
-    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian" 
+    when: ansible_os_family == 'Debian' 
 ...
