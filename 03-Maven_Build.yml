@@ -56,7 +56,7 @@
     - name: Build Maven project
       shell:
         cmd: |
-          /home/ubuntu/Web3
+          cd /home/ubuntu/Web3
           mvn package
       when: ansible_os_family == 'Debian'
 
