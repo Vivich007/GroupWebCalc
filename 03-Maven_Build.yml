@@ -51,14 +51,14 @@
     - name: Build Maven project
       shell:
         cmd: |
-          /home/centos/Repo-dir/
+          /Repo-dir/
           mvn package
       when: ansible_os_family == 'RedHat'
   
     - name: Build Maven project
       shell:
         cmd: |
-          /home/ubuntu/Repo-dir/
+          cd /home/ubuntu/Repo-dir/
           mvn package
       when: ansible_os_family == 'Debian'
 
