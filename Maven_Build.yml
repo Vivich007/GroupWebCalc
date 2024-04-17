@@ -1,0 +1,40 @@
+---
+- name: Install Tomcat
+  hosts: WebCalcServers
+  become: true
+  
+  tasks:
+    
+    - name: Download Apache Maven
+      get_url:
+        url: "https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz"
+        dest: /opt/
+
+    - name: Extract Maven Archive
+      unarchive:
+        src: /opt/apache-maven-3.9.6-bin.tar.gz
+        dest: /opt/
+        remote_src: yes
+
+    - name: Set Maven environment variables
+      ansible.builtin.lineinfile:
+        path: /etc/profile.d/maven.sh
+        line: |
+          export JAVA_HOME=/usr/lib/jvm/jre-openjdk
+          export M2_HOME=/opt/apache-maven-3.9.6
+          export MAVEN_HOME=/opt/apache-maven-3.9.6
+          export PATH=${M2_HOME}/bin:${PATH}
+      #notify: Reload profile
+    
+  #handlers:
+    #- name: Reload profile
+      #ansible.builtin.command: source /etc/profile 
+
+    - name: Set executable permission for maven.sh
+      ansible.builtin.command:
+        cmd: "chmod +x /etc/profile.d/maven.sh"
+        sudo: yes
+
+    - name: Load Maven environment variables
+      shell: source /etc/profile.d/maven.sh
+... 
