@@ -6,7 +6,7 @@
   tasks:
     - name: Copy Web App WAR file
       copy:
-        src: /Repo-dir/*.war
+        src: /home/centos/Repo-dir/*.war
         dest: /opt/apache-tomcat-9.0.54/webapps
         remote_src: yes
 
