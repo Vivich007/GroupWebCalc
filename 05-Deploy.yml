@@ -13,14 +13,14 @@
 
     - name: Copy Web App WAR file
       copy:
-        src: /home/ubuntu/Repo-dir/WebAppCal-0.0.6.war
+        src: /home/ubuntu/WebAppCal-0.0.6.war
         dest: /opt/apache-tomcat-9.0.54/webapps
         remote_src: yes
       when: ansible_os_family == 'Debian'
 
     - name: Restart Tomcat
       service:
-        name: tomcat
+        name: apache-tomcat
         state: restarted
 
     - name: Start Tomcat Service
