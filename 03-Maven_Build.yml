@@ -55,7 +55,7 @@
   
     - name: Change Directory & Build Maven project
       shell: cd /home/ubuntu/Web3
-      shell: mvn package
+             mvn package
       when: ansible_os_family == 'Debian'
 
 ... 
