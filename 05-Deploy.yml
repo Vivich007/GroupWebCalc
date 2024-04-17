@@ -6,9 +6,17 @@
   tasks:
     - name: Copy Web App WAR file
       copy:
-        src: /Repo-dir/target/webapp.war
+        src: /Repo-dir/*.war
         dest: /opt/apache-tomcat-9.0.54/webapps
+        sudo: yes
       when: ansible_os_family == 'RedHat'
+
+    - name: Copy Web App WAR file
+      copy:
+        src: /Repo-dir/target/*.war
+        dest: /opt/apache-tomcat-9.0.54/webapps
+        sudo: yes
+      when: ansible_os_family == 'Debian'
 
     - name: Restart Tomcat
       service:
