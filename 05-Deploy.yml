@@ -6,10 +6,9 @@
   tasks:
     - name: Copy Web App WAR file
       copy:
-        src: /home/centos/Repo-dir/*.war
+        src: /home/centos/Repo-dir/WebAppCal-0.0.6.war
         dest: /opt/apache-tomcat-9.0.54/webapps
         remote_src: yes
-
       when: ansible_os_family == 'RedHat'
 
     - name: Copy Web App WAR file
