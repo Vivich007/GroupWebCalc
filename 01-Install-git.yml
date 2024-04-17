@@ -29,7 +29,7 @@
   - name: Host Code
     git:
      repo: https://github.com/Vivich007/GroupWebCalc.git
-     dest: /home/centos/Repo-dir
+     dest: /Repo-dir
      version: main
      force: yes
     when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" 
@@ -37,7 +37,7 @@
   - name: Host Code
     git:
      repo: https://github.com/Vivich007/GroupWebCalc.git
-     dest: /home/ubuntu/Repo-dir
+     dest: /Repo-dir
      version: main
      force: yes
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian" 
