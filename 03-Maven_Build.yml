@@ -54,10 +54,8 @@
       when: ansible_os_family == 'RedHat'
   
     - name: Build Maven project
-      shell:
-        cmd: |
-          cd /home/ubuntu/Web3
-          mvn package
+      shell: cd /home/ubuntu/Web3
+             mvn package
       when: ansible_os_family == 'Debian'
 
 ... 
