@@ -38,14 +38,14 @@
       shell:
         cmd: |
           cd /home/centos/Repo-dir/
-          mvn clean package
+          mvn package
       when: ansible_os_family == 'RedHat'
   
     - name: Build Maven project
       shell:
         cmd: |
           cd /home/ubuntu/Repo-dir/
-          mvn clean package
+          mvn package
       when: ansible_os_family == 'Debian'
 
 ... 
