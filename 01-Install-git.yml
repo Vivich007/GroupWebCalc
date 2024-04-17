@@ -28,14 +28,14 @@
  
   - name: Clone repository
     git:
-     repo: https://github.com/Vivich007/Web3.git
-     dest: /home/centos/Web3
+     repo: https://github.com/Vivich007/GroupWebCalc.git
+     dest: /home/centos/GroupWebCalc
     when: ansible_os_family == 'RedHat' 
 
   - name: Clone repository
     git:
-     repo: https://github.com/Vivich007/Web3.git
-     dest: /home/ubuntu/Web3
+     repo: https://github.com/Vivich007/GroupWebCalc.git
+     dest: /home/ubuntu/GroupWebCalc
      force: yes
     when: ansible_os_family == 'Debian' 
 ...
