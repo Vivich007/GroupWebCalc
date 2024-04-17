@@ -1,5 +1,5 @@
 ---
-- name: Install Tomcat
+- name: Install Maven
   hosts: WebCalcServers
   become: true
   
@@ -16,14 +16,10 @@
         dest: /opt/
         remote_src: yes
 
-    - name: Set Maven environment variables
-      ansible.builtin.lineinfile:
-        path: /etc/profile.d/maven.sh
-        line: |
-          export JAVA_HOME=/usr/lib/jvm/jre-openjdk
-          export M2_HOME=/opt/apache-maven-3.9.6
-          export MAVEN_HOME=/opt/apache-maven-3.9.6
-          export PATH=${M2_HOME}/bin:${PATH}
+    - name: Copy Maven environment configuration file
+      template:
+        src: Maven_Env_Variables.j2
+        dest: /etc/profile.d/maven_env.sh
       #notify: Reload profile
     
   #handlers:
