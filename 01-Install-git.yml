@@ -26,7 +26,7 @@
      state: present
     when: ansible_os_family == 'Debian'
  
-  - name: Host Code
+  - name: Clone repository
     git:
      repo: https://github.com/Vivich007/Web3.git
      dest: /home/centos/Repo-dir
@@ -34,7 +34,7 @@
      force: yes
     when: ansible_os_family == 'RedHat' 
 
-  - name: Host Code
+  - name: Clone repository
     git:
      repo: https://github.com/Vivich007/Web3.git
      dest: /home/ubuntu/Repo-dir
