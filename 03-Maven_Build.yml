@@ -53,9 +53,12 @@
           mvn package
       when: ansible_os_family == 'RedHat'
   
-    - name: Build Maven project
+    - name: Change Directory
       shell: cd /home/ubuntu/Web3
-             mvn package
+      when: ansible_os_family == 'Debian'
+      
+    - name: Build Maven project
+      shell: mvn package
       when: ansible_os_family == 'Debian'
 
 ... 
