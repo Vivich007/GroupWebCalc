@@ -29,7 +29,6 @@
     - name: Set executable permission for maven.sh
       ansible.builtin.command:
         cmd: "chmod +x /etc/profile.d/maven.sh"
-        sudo: yes
 
     - name: Load Maven environment variables
       shell: source /etc/profile.d/maven.sh
