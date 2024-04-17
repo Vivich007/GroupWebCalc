@@ -49,8 +49,7 @@
     - name: Build Maven project
       shell:
         cmd: |
-          /home/ubuntu//Repo-dir/
-          mvn package
+          /home/centos//Repo-dir/mvn package
       when: ansible_os_family == 'RedHat'
   
     - name: Build Maven project
