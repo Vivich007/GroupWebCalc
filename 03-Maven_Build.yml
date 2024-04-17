@@ -43,7 +43,7 @@
       when: ansible_os_family == 'RedHat'
 
     - name: Load Maven environment variables
-      command: "source /etc/profile.d/maven.sh"
+      command: source /etc/profile.d/maven.sh
       when: ansible_distribution == 'Ubuntu'
       
     - name: Build Maven project
