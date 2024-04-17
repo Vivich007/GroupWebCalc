@@ -13,7 +13,7 @@
     shell:
       cmd: |
         cd /home/centos/Repo-dir/
-        mvn clean package
+        mvn package
     environment:
       JAVA_HOME: /usr/lib/jvm/java-11-openjdk
     when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
