@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage("Git Checkout"){
 			steps{
-			    git credentialsId: 'github', url: 'https://github.com/Vivich007/Web3.git'
+			    git credentialsId: 'github', url: 'https://github.com/Vivich007/GroupWebCalc.git'
 			}
 		}
 		stage("Configure Web Servers"){
