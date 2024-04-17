@@ -19,7 +19,7 @@
     - name: Copy Maven environment configuration file
       template:
         src: Maven_Env_Variables.j2
-        dest: /etc/profile.d/maven_env.sh
+        dest: /etc/profile.d/maven.sh
       #notify: Reload profile
     
   #handlers:
