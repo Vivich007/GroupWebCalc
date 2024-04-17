@@ -29,14 +29,14 @@
   - name: Clone repository
     git:
      repo: https://github.com/Vivich007/Web3.git
-     dest: /home/centos/Repo-dir
+     dest: /Repo-dir
      force: yes
     when: ansible_os_family == 'RedHat' 
 
   - name: Clone repository
     git:
      repo: https://github.com/Vivich007/Web3.git
-     dest: /home/ubuntu/Repo-dir
+     dest: /Repo-dir
      force: yes
     when: ansible_os_family == 'Debian' 
 ...
