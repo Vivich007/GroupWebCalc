@@ -1,7 +1,7 @@
 ---
 - name: Install Maven and build project
   hosts: WebCalcServers
-  become: yes
+  become: true
   
   tasks:
   - name: Install Maven
