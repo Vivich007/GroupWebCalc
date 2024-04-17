@@ -47,12 +47,11 @@
       when: ansible_distribution == 'Ubuntu'
       
     - name: Build Maven project
-      shell: cd /home/centos//Web3/
-             mvn package
+      shell: cd /home/centos//Web3 && mvn package
       when: ansible_os_family == 'RedHat'
   
-    - name: Change Directory & Build Maven project
-      shell: cd /home/ubuntu/Web3/
+    - name: Change Directory
+      shell: cd /home/ubuntu/Web3
       when: ansible_os_family == 'Debian'
 
     - name: Build Maven project
