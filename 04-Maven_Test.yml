@@ -1,51 +1,22 @@
 ---
-- name: Install Maven
+- name: Build test
   hosts: WebCalcServers
   become: true
   
   tasks:
-    
-    - name: Download Apache Maven
-      get_url:
-        url: "https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz"
-        dest: /opt/
-
-    - name: Extract Maven Archive
-      unarchive:
-        src: /opt/apache-maven-3.9.6-bin.tar.gz
-        dest: /opt/
-        remote_src: yes
-
-    - name: Copy Maven environment configuration file
-      template:
-        src: Maven_Env_Variables.j2
-        dest: /etc/profile.d/maven.sh
-      #notify: Reload profile
-    
-  #handlers:
-    #- name: Reload profile
-      #ansible.builtin.command: source /etc/profile 
-
-    - name: Set executable permission for maven.sh
-      file:
-        path: /etc/profile.d/maven.sh  # Specify the path to the file or directory
-        mode: "755" 
-
-    - name: Load Maven environment variables
-      shell: source /etc/profile.d/maven.sh
 
     - name: Build Maven project
       shell:
         cmd: |
-          cd /home/centos/Repo-dir/
-          mvn package
+          cd /home/centos/GroupWebCalc
+          mvn test
       when: ansible_os_family == 'RedHat'
   
     - name: Build Maven project
       shell:
         cmd: |
-          cd /home/ubuntu/Repo-dir/
-          mvn package
+          cd /home/ubuntu/GroupWebCalc
+          mvn test
       when: ansible_os_family == 'Debian'
 
 ... 
